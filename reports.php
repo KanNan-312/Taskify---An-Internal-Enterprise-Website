@@ -55,10 +55,10 @@
                         Due: <?php echo date("Y-m-d",strtotime($row['end_date'])) ?>
                     </small>
                 </td>
-                <td class="text-center">
+                <td class="">
                   <?php echo number_format($tprog) ?>
                 </td>
-                <td class="text-center">
+                <td class="">
                   <?php echo number_format($cprog) ?>
                 </td>
 
@@ -93,11 +93,11 @@
 <script>
 	$('#print').click(function(){
 		start_load()
-		var _h = $('head').clone()
+		// var _h = $('head').clone()
 		var _p = $('#printable').clone()
 		var _d = "<p class='text-center'><b>Project Progress Report as of (<?php echo date("F d, Y") ?>)</b></p>"
 		_p.prepend(_d)
-		_p.prepend(_h)
+		// _p.prepend(_h)
 		var nw = window.open("","","width=900,height=600")
 		nw.document.write(_p.html())
 		nw.document.close()

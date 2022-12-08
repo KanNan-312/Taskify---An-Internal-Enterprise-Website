@@ -14,8 +14,8 @@ if(isset($_GET['id'])){
 		<input type="hidden" name="project_id" value="<?php echo isset($_GET['pid']) ? $_GET['pid'] : '' ?>">
 		<!-- Task name -->
 		<div class="form-group">
-			<label for="">Task</label>
-			<input required type="text" class="form-control form-control-sm" name="task" value="<?php echo isset($task) ? $task : '' ?>" required>
+			<label for="" class="form-label">Task</label>
+			<input required type="text" class="form-control form-control-sm" name="task" value="<?php echo isset($task) ? $task : '' ?>">
 		</div>
 		<!-- Description -->
 		<div class="form-group">
@@ -48,7 +48,10 @@ if(isset($_GET['id'])){
 				ON u.id = pl.manager_id WHERE pl.id = $pid") -> fetch_assoc();
 				$manager_id = $manager["manager_id"];
 				$manager_name = ucwords($manager["name"]);
-				echo "<option value='$manager_id'>$manager_name</option>";
+				?>
+				<!-- manager option -->
+				<option value="<?php echo $manager_id;?>" <?php echo (isset($assignee_id) && $manager_id == $assignee_id)? 'selected' : ''?>> <?php echo $manager_name; ?></option>
+				<?php
 				// name of employee
 				$employees = $conn->query("SELECT users.id ,concat(firstname,' ',lastname) as name FROM users JOIN works_on ON users.id = works_on.user_id
 				where works_on.project_id = $pid order by concat(firstname,' ',lastname) asc ");
@@ -80,7 +83,7 @@ if(isset($_GET['id'])){
 				alert_toast('Data successfully saved',"success");
 				setTimeout(function(){
 					location.reload()
-				},1000)
+				},1500)
 			}
 		}
 		})

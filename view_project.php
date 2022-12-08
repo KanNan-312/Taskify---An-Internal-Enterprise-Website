@@ -176,8 +176,8 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 											>
 												View
 											</a>
-											<div class="dropdown-divider"></div>
 											<?php if($_SESSION['login_type'] != 3): ?>
+												<div class="dropdown-divider"></div>
 												<a class="dropdown-item edit_task" href="javascript:void(0)" data-id="<?php echo $row['id'] ?> " data-bs-toggle="modal" data-bs-target="#data_modal"  data-task="<?php echo $row['task'] ?>">Edit</a>
 												<div class="dropdown-divider"></div>
 												<a class="dropdown-item delete_task" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>" data-bs-toggle="modal" data-bs-target="#confirm_modal">Delete</a>
