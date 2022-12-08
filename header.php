@@ -48,7 +48,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="assets/dist/css/styles.css">
 
-
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
 
   <!-- Toastr -->
   <!-- <link rel="stylesheet" href="assets/plugins/toastr/toastr.min.css"> -->
